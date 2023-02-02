@@ -88,6 +88,10 @@ const game = (() => {
             }
             gameover = true;
           }
+          if (turn === 9 && !gameover) {
+            alert("It's a tie!");
+            gameover = true;
+          }
         }
       });
     });
