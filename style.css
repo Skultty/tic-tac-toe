@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 20vw;
+    height: 20vw;
+    background-color: black;
+}
+
+.square {
+    background-color: white;
+    border: 1px solid black;
+}
