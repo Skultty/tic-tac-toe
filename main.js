@@ -7,3 +7,14 @@ const gameboard = (() => {
     return { getBoard, setBoard };
 })();
 
+const displayController = (() => {
+    const board = gameboard.getBoard();
+    const squares = document.querySelectorAll('.square');
+    const render = () => {
+        squares.forEach((square, index) => {
+            square.textContent = board[index];
+        });
+    };
+    return { render };
+})();
+
