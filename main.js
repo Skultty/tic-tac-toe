@@ -27,6 +27,11 @@ const gameboard = (() => {
         return false;
     };
 
+    const resetBoard = () => {
+        for (let i = 0; i < 9; i++) {
+            board[i] = "";
+        }
+    };
     return { getBoard, setBoard, checkBoard};
 })();
 
@@ -54,11 +59,12 @@ const game = (() => {
     const squares = document.querySelectorAll('.square');
     const render = () => displayController.render();
     let turn = 0;
+    let gameover = false;
     const start = () => {
         render();
         squares.forEach((square, index) => {
             square.addEventListener('click', () => {
-                if (board[index] === "") {
+                if (board[index] === "" && !gameover) {
                     if (turn % 2 === 0) {
                         gameboard.setBoard(index, player1.getSymbol());
                     } else {
@@ -72,6 +78,7 @@ const game = (() => {
                         } else {
                             alert(`${player1.getName()} wins!`);
                         }
+                        gameover = true;
                     }
                 }
             });
