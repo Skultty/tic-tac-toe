@@ -8,12 +8,29 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 20vw;
-    height: 20vw;
-    background-color: black;
+    border: 1px solid black;
+    width: 30vw;
+    height: 30vw;
 }
 
 .square {
     background-color: white;
     border: 1px solid black;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+
 }

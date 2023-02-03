@@ -49,6 +49,7 @@ const displayController = (() => {
   const render = () => {
     squares.forEach((square, index) => {
       square.textContent = board[index];
+      square.classList.add("full");
     });
   };
   return { render };
