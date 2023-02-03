@@ -19,7 +19,7 @@
 }
 
 #game {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -70,12 +70,16 @@
     width: 100vw;
     height: 100vh;
     padding-top: 2rem;
+    pointer-events: none;
 }
 
 .show {
     display: flex !important;
     justify-content: center;
-    pointer-events: none;
+}
+
+.hide {
+    display: none !important;
 }
 
 

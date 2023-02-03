@@ -70,6 +70,7 @@ const game = (() => {
   let turn = 0;
   let gameover = false;
   const start = () => {
+    document.querySelector("#game").classList.add("show");
     render();
     squares.forEach((square, index) => {
       square.addEventListener("click", () => {
@@ -117,7 +118,12 @@ const game = (() => {
   return { start, reset };
 })();
 
-game.start();
+const pvpButton = document.querySelector("#PVP");
+pvpButton.addEventListener("click", () => {
+  // hide menu div and its children
+  document.querySelector("#menu").classList.add("hide");
+  game.start();
+});
 
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
