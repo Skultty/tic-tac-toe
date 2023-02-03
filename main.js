@@ -55,20 +55,44 @@ const displayController = (() => {
   return { render };
 })();
 
-const player = (name, symbol) => {
+const player = () => {
+  let name = "";
+  let symbol = "";
   const getName = () => name;
+  const setName = (value) => {
+    name = value;
+  };
   const getSymbol = () => symbol;
-  return { getName, getSymbol };
+  const setSymbol = (value) => {
+    symbol = value;
+  };
+  return { getName, setName, getSymbol, setSymbol };
 };
 
 const game = (() => {
-  const player1 = player("Player 1", "X");
-  const player2 = player("Player 2", "O");
+  const player1 = player();
+  const player2 = player();
   const board = gameboard.getBoard();
   const squares = document.querySelectorAll(".square");
   const render = () => displayController.render();
   let turn = 0;
   let gameover = false;
+
+  const prepare = (gameType) => {
+    if (gameType === "PVP") {
+      player1.setName(prompt("Player 1, enter your name:"));
+      player1.setSymbol("X");
+      player2.setName(prompt("Player 2, enter your name:"));
+      player2.setSymbol("O");
+    } else if (gameType === "AI") {
+      player1.setName(prompt("Player 1, enter your name:"));
+      player1.setSymbol("X");
+      player2.setName("AI");
+      player2.setSymbol("O");
+    }
+    game.start();
+  };
+
   const start = () => {
     document.querySelector("#game").classList.add("show");
     render();
@@ -115,14 +139,21 @@ const game = (() => {
     document.querySelector("#winnerModal").innerHTML = "";
     render();
   };
-  return { start, reset };
+  return { start, reset, prepare };
 })();
 
 const pvpButton = document.querySelector("#PVP");
 pvpButton.addEventListener("click", () => {
   // hide menu div and its children
   document.querySelector("#menu").classList.add("hide");
-  game.start();
+  game.prepare("PVP");
+});
+
+const aiButton = document.querySelector("#AI");
+aiButton.addEventListener("click", () => {
+  // hide menu div and its children
+  document.querySelector("#menu").classList.add("hide");
+  game.prepare("AI");
 });
 
 const resetButton = document.querySelector("#reset");
