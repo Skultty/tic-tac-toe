@@ -40,7 +40,7 @@ const gameboard = (() => {
       board[i] = "";
     }
   };
-  return { getBoard, setBoard, checkBoard };
+  return { getBoard, setBoard, checkBoard, resetBoard };
 })();
 
 const displayController = (() => {
@@ -97,7 +97,18 @@ const game = (() => {
       });
     });
   };
-  return { start };
+  const reset = () => {
+    gameboard.resetBoard();
+    turn = 0;
+    gameover = false; 
+    render();
+  };
+  return { start, reset };
 })();
 
 game.start();
+
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", () => {
+  game.reset();
+});
