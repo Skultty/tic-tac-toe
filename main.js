@@ -83,14 +83,23 @@ const game = (() => {
           render();
           if (gameboard.checkBoard()) {
             if (turn % 2 === 0) {
-              alert(`${player2.getName()} wins!`);
+              document.querySelector("#winnerModal").classList.add("show");
+              let p = document.createElement("p");
+              p.textContent = player2.getName() + " wins!";
+              document.querySelector("#winnerModal").appendChild(p);
             } else {
-              alert(`${player1.getName()} wins!`);
+              document.querySelector("#winnerModal").classList.add("show");
+              let p = document.createElement("p");
+              p.textContent = player1.getName() + " wins!";
+              document.querySelector("#winnerModal").appendChild(p);
             }
             gameover = true;
           }
           if (turn === 9 && !gameover) {
-            alert("It's a tie!");
+            document.querySelector("#winnerModal").classList.add("show");
+            let p = document.createElement("p");
+            p.textContent = "It's a tie!";
+            document.querySelector("#winnerModal").appendChild(p);
             gameover = true;
           }
         }
@@ -101,6 +110,8 @@ const game = (() => {
     gameboard.resetBoard();
     turn = 0;
     gameover = false; 
+    document.querySelector("#winnerModal").classList.remove("show");
+    document.querySelector("#winnerModal").innerHTML = "";
     render();
   };
   return { start, reset };

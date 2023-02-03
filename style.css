@@ -50,6 +50,7 @@
 	padding:16px 31px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #7cacde;
+    z-index: 999;
 }
 #reset:hover {
 	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
@@ -60,6 +61,22 @@
 	top:1px;
 }
 
+#winnerModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 2rem;
+}
+
+.show {
+    display: flex !important;
+    justify-content: center;
+    pointer-events: none;
+}
 
 
 
