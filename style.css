@@ -37,7 +37,7 @@
 
 }
 
-#reset {
+.controlButton {
 	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
 	background-color:#63b8ee;
 	border-radius:28px;
@@ -52,11 +52,11 @@
 	text-shadow:0px 1px 0px #7cacde;
     z-index: 999;
 }
-#reset:hover {
+.controlButton:hover {
 	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
 	background-color:#468ccf;
 }
-#reset:active {
+.controlButton:active {
 	position:relative;
 	top:1px;
 }
@@ -80,6 +80,23 @@
 
 .hide {
     display: none !important;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100vh;
+    width: 100vw;
+}
+
+#menuControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 
